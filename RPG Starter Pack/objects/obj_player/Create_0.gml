@@ -17,12 +17,19 @@ function add_xp(_xp_to_add)
     xp += _xp_to_add;
     if (xp >=xp_require)
     {
-        level++;
+        lvl++;
         xp -= xp_require;
-        xp_require *= 1.25;
+        xp_require *= 1.25;    
         
-        hp_total += 5;
+        hp_total *= 1.05;
         hp = hp_total;
-        dmg += 0.5;
+        dmg *= 1.125;
+        
+        create_dialog([
+        {    
+            name: "Congrats",
+            msg: $"You levelled up! New stats:\nLVL: {lvl}\nDMG: {dmg}\nHP: {hp} "
+        }
+        ])
     }
 }
