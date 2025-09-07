@@ -26,9 +26,37 @@ else
     else if (sprite_index == spr_player_walk_up) sprite_index = spr_player_idle_up;
 }
 
-if (keyboard_check_pressed(vk_space))
+if (keyboard_check_pressed(vk_space) && atk_cooldown <= 0)
 {
     var _inst = instance_create_depth(x, y, depth, obj_attack);
     _inst.image_angle = facing;
-    _inst.dmg *= dmg;
+    _inst.dmg = dmg;
+    atk_cooldown = 60;
+}
+
+if (atk_cooldown > 0) 
+{
+    atk_cooldown--;	
+}
+
+if (instance_exists(obj_dialog)) 
+{ 
+    move_speed = 0;
+    instance_deactivate_object(obj_enemy_parent);
+}
+else {
+	move_speed = 1;
+    instance_activate_object(obj_enemy_parent);
+}
+
+
+if keyboard_check_pressed(vk_lshift)
+{
+    global.Saved = true;
+    game_save("Save.dat");
+}
+
+if keyboard_check_pressed(vk_control)
+{
+    if(global.Saved) game_load("Save.dat")
 }

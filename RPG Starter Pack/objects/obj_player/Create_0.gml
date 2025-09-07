@@ -12,6 +12,8 @@ lvl = 1;
 xp = 0;
 xp_require = 100;
 
+atk_cooldown = 0;
+
 function add_xp(_xp_to_add)
 {
     xp += _xp_to_add;

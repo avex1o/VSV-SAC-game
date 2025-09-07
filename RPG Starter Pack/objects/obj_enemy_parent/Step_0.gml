@@ -1,4 +1,5 @@
-if (instance_exists( obj_dialog)) exit;
+if (instance_exists(obj_dialog)) exit;
+
 
 if (alarm[1] >= 0)
 {
