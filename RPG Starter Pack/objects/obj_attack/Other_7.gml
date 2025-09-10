@@ -1,1 +1,1 @@
-instance_destroy();     
+instance_destroy();     // Destroys object once animation is over

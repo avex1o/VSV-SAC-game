@@ -1,11 +1,18 @@
 function create_dialog(_msgs)
 {
+    // If a dialog instance already exists, do nothing (prevents duplicates)
     if (instance_exists(obj_dialog)) return;
         
+    // Create a new dialog object at position (0,0) with depth 0
     var _inst = instance_create_depth(0, 0, 0, obj_dialog);
+
+    // Store the list/array of messages in the dialog instance
     _inst.msgs = _msgs;
+
+    // Start from the first message (index 0)
     _inst.current_msg = 0;
-} 
+}
+
 
 char_colors = 
 {
